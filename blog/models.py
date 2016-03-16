@@ -24,5 +24,5 @@ class Comment(models.Model):
 
     comment_article = models.ForeignKey(Article)
     comment_author = models.ForeignKey(User)
-    comment_text = models.TextField()
-    article_date = models.DateTimeField(auto_now_add=True)
+    comment_text = models.TextField(verbose_name='')
+    comment_date = models.DateTimeField(auto_now_add=True, blank=True)

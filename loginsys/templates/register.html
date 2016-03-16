@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block register %}
+<form action="/auth/register/" method="post">
+    {% csrf_token %}
+    <label for="email">E-mail</label> <br/>
+    <input type="text" name="email" id="form.email"><br/>
+    <label for="Login">Login</label> <br/>
+    <input type="password" name="password" id="form.username"> <br/>
+    <label for="password">Пароль</label> <br/>
+    <input type="password" name="password" id="form.password1"> <br/>
+    <label for="password">Пароль</label> <br/>
+    <input type="password" name="password" id="form.password2"> <br/>
+    {% if form.errors %}
+        <label class="errors"> {{form.errors}}</label>
+    {% endif %}<br/>
+    <button type="submit" class="btn btn-default">Регистрация</button>
+</form>
+{% endblock %}
+
