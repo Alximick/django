@@ -29,6 +29,7 @@ mptt.register(Category, order_insertion_by=['name'])
 class Article(models.Model):
     class Meta:
         db_table = 'Article'
+        verbose_name_plural = "Статьи"
 
     article_title = models.CharField(max_length=150)
     article_text = RichTextField(null=True, blank=True)

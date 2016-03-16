@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block search_result %}
+    <p>You searched for: <strong>{{ query }}</strong></p>
+    {% if articles %}
+        {% for article in articles %}
+            <div class="blog-post">
+                <h2 class="blog-post-title"><a href="/articles/get/{{article.id}}/"> {{article.article_title}}</a></h2>
+                <p class="blog-post-meta">{{article.article_date}} by <a href="#">{{article.article_author.username}}</a></p>
+                <P> {% autoescape off%}{{article.article_text_short}}{%endautoescape%}</P>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No title matched your search.</p>
+    {% endif %}
+{% endblock %}

@@ -5,38 +5,23 @@
 {% for article in articles %}
 
 <div class="blog-post">
-            <h2 class="blog-post-title"><a href="/articles/get/{{article.id}}/"> {{article.article_title}}</a></h2>
-            <p class="blog-post-meta">{{article.article_date}} by <a href="#">{{article.article_author.username}}</a></p>
-
-            <P> {% autoescape off%}{{article.article_text_short}}{%endautoescape%}</P>
-
-
-
-<hr/>
-<P> {% autoescape off%}{{article.article_text}}{%endautoescape%}</P>
-          </div><!-- /.blog-post -->
-
-
-
-
-
-
-
-
-
+    <h2 class="blog-post-title"><a href="/articles/get/{{article.id}}/"> {{article.article_title}}</a></h2>
+    <p class="blog-post-meta">{{article.article_date}} by <a href="#">{{article.article_author.username}}</a></p>
+    <P> {% autoescape off%}{{article.article_text_short}}{%endautoescape%}</P>
+</div>
 {% endfor %}
 
 
 <nav>
-            <ul class="pager">
-                {% if articles.has_previous %}
-              <li><a href="/page/{{ articles.previous_page_number }}">Previous</a></li>
-                {% endif %}
-                 {% if articles.has_next %}
-              <li><a href="/page/{{ articles.next_page_number }}">Next</a></li>
-            {% endif %}
-            </ul>
-          </nav>
+    <ul class="pager">
+        {% if articles.has_previous %}
+            <li><a href="/page/{{ articles.previous_page_number }}">Previous</a></li>
+        {% endif %}
+        {% if articles.has_next %}
+            <li><a href="/page/{{ articles.next_page_number }}">Next</a></li>
+        {% endif %}
+    </ul>
+</nav>
 <!-----
 <center><div class="row">
 

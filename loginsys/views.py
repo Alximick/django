@@ -2,7 +2,7 @@ from django.shortcuts import render, render_to_response, redirect
 from django.contrib import auth
 from django.template.context_processors import csrf
 from django.contrib.auth.forms import UserCreationForm
-from blog.models import Article
+from blog.models import Article, Category
 from loginsys.forms import RegistrationForm
 
 

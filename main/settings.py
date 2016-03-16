@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'loginsys',
+    'search',
     'ckeditor',
     'mptt',
 ]
@@ -63,6 +64,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR + '/templates'),
             os.path.join(BASE_DIR + 'blog/templates'),
             os.path.join(BASE_DIR + 'loginsys/templates'),
+            os.path.join(BASE_DIR + 'search/templates'),
                 ],
         'APP_DIRS': True,
         'OPTIONS': {

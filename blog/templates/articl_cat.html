@@ -4,7 +4,7 @@
 
 {% block article_category %}
 
-<ul class="right"><h4> категория: {{ category }}</h4></ul>
+<ul class="right"><h4> Категория: {{ category }}</h4></ul>
 {% for article in category_articles %}<article>
     <h3><a href="/articles/get/{{article.id}}/">{{article.article_title}}</a></h3>
     <h6>Written by <a href="#">John Smith</a> {{ article.article_date }}</h6>
