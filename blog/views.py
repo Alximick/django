@@ -11,3 +11,11 @@ def articles(request):
     args['articles'] = Article.objects.all()
     args['username'] = auth.get_user(request).username
     return render_to_response('articles.html', args)
+
+
+def article(request, article_id=1):
+    args = {}
+    # args.update(csrf(request))
+    args['article'] = Article.objects.get(id=article_id)
+    args['username'] = auth.get_user(request).username
+    return render_to_response('article.html', args)
