@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% load i18n mptt_tags %}
+
+{% block article_category %}
+<h2> Категория: {{ category }}</h2></ul>
+    {% for article in category_articles %}
+        <div class="blog-post">
+            <h2 class="blog-post-title"> {{article.article_title}}</h2>
+            <p class="blog-post-meta">{{article.article_date}}
+                by <a href="#">{{article.article_author.username}}</a></p>
+            <P> {% autoescape off%}{{article.article_text}}{%endautoescape%}</P>
+        </div>
+    {% endfor %}
+{%  endblock %}

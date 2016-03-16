@@ -8,4 +8,5 @@ urlpatterns = [
     # url(r'^page/(?P<page_number>\d+)/$', blog.views.articles),
     url(r'^page/(\d+)/$', blog.views.articles),
     url(r'^articles/add_comment/(?P<article_id>\d+)/$', blog.views.add_comment),
+    url(r'^category/get/(?P<category_id>\d+)/$', blog.views.articl_cat),
 ]

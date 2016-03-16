@@ -1,4 +1,6 @@
 {% load staticfiles %}
+
+{% load i18n mptt_tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -75,6 +77,7 @@
             <p>{% block article %}{% endblock %} </p>
             <p>{% block login %}{% endblock %} </p>
             <p>{% block register %}{% endblock %}</p>
+            <p>{% block article_category %}{% endblock %}</p>
           </div>
 
 
@@ -92,18 +95,12 @@
           <div class="sidebar-module">
             <h4>Archives</h4>
             <ol class="list-unstyled">
-              <li><a href="#">March 2014</a></li>
-              <li><a href="#">February 2014</a></li>
-              <li><a href="#">January 2014</a></li>
-              <li><a href="#">December 2013</a></li>
-              <li><a href="#">November 2013</a></li>
-              <li><a href="#">October 2013</a></li>
-              <li><a href="#">September 2013</a></li>
-              <li><a href="#">August 2013</a></li>
-              <li><a href="#">July 2013</a></li>
-              <li><a href="#">June 2013</a></li>
-              <li><a href="#">May 2013</a></li>
-              <li><a href="#">April 2013</a></li>
+                {% recursetree projects %}
+                    <li><a href="/category/get/{{ node.id }}/">{{ node }}</a></li>
+                    {% if not node.is_leaf_node %}
+                        <li><a href="/category/get/{{ node.id }}/">   {{ children }}</a></li>
+                    {% endif %}
+                {% endrecursetree %}
             </ol>
           </div>
           <div class="sidebar-module">
