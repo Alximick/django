@@ -28,7 +28,6 @@ def login(request):
 
 
 def logout(request):
-    # back_url = request.META['HTTP_REFERER']
     auth.logout(request)
     return redirect('/')
 
@@ -43,8 +42,8 @@ def register(request):
         newuser_form = RegistrationForm(request.POST)
         if newuser_form.is_valid():
             newuser_form.save()
-            new_user = auth.authenticate(username=newuser_form.cleaned_data['username'],\
-                                             password=newuser_form.cleaned_data['password2'])
+            new_user = auth.authenticate(username=newuser_form.cleaned_data['username'],
+                                         password=newuser_form.cleaned_data['password2'])
             auth.login(request, new_user)
             return redirect('/')
         else:
