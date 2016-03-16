@@ -26,21 +26,25 @@
 
 {% endfor %}
 
-<!-----
+
 <nav>
             <ul class="pager">
-              <li><a href="#">Previous</a></li>
-              <li><a href="#">Next</a></li>
+                {% if articles.has_previous %}
+              <li><a href="/page/{{ articles.previous_page_number }}">Previous</a></li>
+                {% endif %}
+                 {% if articles.has_next %}
+              <li><a href="/page/{{ articles.next_page_number }}">Next</a></li>
+            {% endif %}
             </ul>
           </nav>
-
+<!-----
 <center><div class="row">
 
                 <ul class="pagination" role="navigation" aria-label="Pagination">
                     {% if articles.has_previous %}
-                    <li><a href="/page/{{ articles.previous_page_number }}" aria-label="Next page"> Previous <span class="show-for-sr">page</span></a></li>
+                    <li><a href="" aria-label="Next page"> Previous <span class="show-for-sr">page</span></a></li>
                      {% else %}
-                    <li class="disabled">Previous <span class="show-for-sr">page</span></li>
+                    <li class="disabled">Previous <span class="show-for-sr">Previous</span></li>
                 {% endif %}
                     {% for page in articles.paginator.page_range %}
                     {% if page == articles.number %}
@@ -52,12 +56,12 @@
                     {% if articles.has_next %}
                     <li><a href="/page/{{ articles.next_page_number }}" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
                      {% else %}
-                    <li class="disabled">Next page <span class="show-for-sr">page</span></li>
+                    <li class="disabled">Next page <span class="show-for-sr">Next</span></li>
                     {% endif %}
                 </ul>
 
    </div></center>
-
-
 ---->
+
+
 {% endblock %}
