@@ -7,11 +7,11 @@
 <div class="blog-post">
             <h2 class="blog-post-title"><a href="/articles/get/{{article.id}}/"> {{article.article_title}}</a></h2>
             <p class="blog-post-meta">{{article.article_date}} by <a href="#">{{article.article_author.username}}</a></p>
+{{article.article_text}}
+         <!--   <P> {% autoescape off%}{{article.article_text}}{%endautoescape%}</P>
+          /.blog-post -->
 
-            <P> {% autoescape off%}{{article.article_text}}{%endautoescape%}</P>
-          </div><!-- /.blog-post -->
-
-
+</div>
 
 
 
@@ -21,14 +21,14 @@
 
 {% endfor %}
 
-
+<!-----
 <nav>
             <ul class="pager">
               <li><a href="#">Previous</a></li>
               <li><a href="#">Next</a></li>
             </ul>
           </nav>
-<!-----
+
 <center><div class="row">
 
                 <ul class="pagination" role="navigation" aria-label="Pagination">
